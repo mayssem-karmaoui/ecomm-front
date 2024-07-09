@@ -36,7 +36,10 @@ export async function signUp(username, email, password) {
         }
         const data = await response.json();
         return data; // Return the response data for potential further processing
-    } catch (error) {
+    
+    } 
+    
+    catch (error) {
         console.error('Sign up error:', error);
         throw error; // Propagate the error for handling in the UI or calling code
     }

@@ -13,6 +13,7 @@ function Signup() {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
+
     const mutation = useMutation({
         mutationFn: ({ username, email, password }) => signUp(username, email, password),
         onSuccess: () => {
