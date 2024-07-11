@@ -29,20 +29,29 @@ export async function signUp(username, email, password) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify( username, email, password ),
+            body: JSON.stringify({ username, email, password}),
+
         });
+        console.log(username,email,password,'aaaaaaaaaaaaaaaaaaaaaaa');
         if (!response.ok) {
             throw new Error('Failed to sign up');
+
         }
+        console.log(username,email,password,'aaaaaaaaaaaaaaaaaaaaaaa');
+
         const data = await response.json();
         return data; // Return the response data for potential further processing
-    
+
     } 
+    
+    
     
     catch (error) {
         console.error('Sign up error:', error);
         throw error; // Propagate the error for handling in the UI or calling code
     }
+    
+
 }
 
 export function logout() {
@@ -53,15 +62,23 @@ export function getCurrentUser() {
     try {
         const token = localStorage.getItem('token');
         if (!token) {
+            console.log(token,'aaaaaaaaaaaaaaaaaaaaaaa')
             return null;
+            
         }
         return jwtDecode(token);
+        
     } catch (error) {
         console.error('Error decoding token:', error);
+        console.log(error,'aaaaaaaaaaaaaaaaaaaaaaa')
+
         return null;
     }
+    
 }
 
 export function getJwt() {
+    console.log('aaaaaaaaaaaaaaaaaaaaaaa')
+
     return localStorage.getItem('token');
 }

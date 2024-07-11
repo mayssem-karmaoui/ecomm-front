@@ -10,12 +10,16 @@ function Signup() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
 
     const mutation = useMutation({
-        mutationFn: ({ username, email, password }) => signUp(username, email, password),
+        mutationFn: ({ username, email, password}) =>
+             signUp(username, email, password
+    ),
         onSuccess: () => {
             navigate('/signin');
         },
@@ -26,7 +30,7 @@ function Signup() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        mutation.mutate(username, email, password );
+        mutation.mutate({username, email, password });
     };
     console.log(username,email,password,'aaaaaaaaaaaaaaaaaaaaaaa')
 
@@ -116,7 +120,15 @@ function Signup() {
                     </p>
                 </div>
             </div>
+            <div className="flex-1 hidden lg:flex items-center justify-center bg-gray-100">
+            <img
+              src="https://i.pinimg.com/564x/2e/fb/8b/2efb8b188ff4f1801b509a94cc438b2d.jpg"
+              alt="Description of the image"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
+        
     );
 }
 

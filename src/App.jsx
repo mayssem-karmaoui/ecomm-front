@@ -1,7 +1,9 @@
 //import { QueryClientProvider,QueryClient } from '@tanstack/react-query'
 //import{RouterProvider} from 'react-router-dom'
 
-import Signup from "./components/SignUpignUp";
+import SignIn from "./components/SignIn";
+import Signup from "./components/SignUp";
+//import Signup from "./components/SignUp";
 
 function App() {
 
